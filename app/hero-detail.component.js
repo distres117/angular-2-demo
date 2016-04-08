@@ -1,4 +1,4 @@
-System.register(['angular2/core', './classes/hero'], function(exports_1, context_1) {
+System.register(['angular2/core', './classes/hero', './hero.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './classes/hero'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_1;
+    var core_1, hero_1, hero_service_1;
     var HeroDetailComponent;
     return {
         setters:[
@@ -19,10 +19,14 @@ System.register(['angular2/core', './classes/hero'], function(exports_1, context
             },
             function (hero_1_1) {
                 hero_1 = hero_1_1;
+            },
+            function (hero_service_1_1) {
+                hero_service_1 = hero_service_1_1;
             }],
         execute: function() {
             HeroDetailComponent = (function () {
-                function HeroDetailComponent() {
+                function HeroDetailComponent(_heroService) {
+                    this._heroService = _heroService;
                 }
                 __decorate([
                     core_1.Input(), 
@@ -33,7 +37,7 @@ System.register(['angular2/core', './classes/hero'], function(exports_1, context
                         selector: 'my-hero-detail',
                         templateUrl: '/partials/hero-detail.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [hero_service_1.HeroService])
                 ], HeroDetailComponent);
                 return HeroDetailComponent;
             }());
